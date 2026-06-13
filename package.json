@@ -1,0 +1,11 @@
+{
+  "name": "nutriai-backend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node backend/src/server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

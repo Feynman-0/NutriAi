@@ -1,0 +1,8 @@
+[install]
+cmd = "cd backend && npm ci"
+
+[build]
+cmd = "cd backend && npx prisma generate"
+
+[deploy]
+cmd = "node backend/src/server.js"
