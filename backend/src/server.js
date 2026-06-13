@@ -12,9 +12,10 @@ app.use(
   cors({
     origin: (origin, cb) => {
       if (!origin) return cb(null, true);
-      // Allow any localhost port (dev) or the deployed frontend URL
       if (/^http:\/\/localhost(:\d+)?$/.test(origin)) return cb(null, true);
       if (origin === process.env.FRONTEND_URL) return cb(null, true);
+      // Allow all Vercel preview deployments for this project
+      if (/^https:\/\/nutri-[a-z0-9]+-feynman1\.vercel\.app$/.test(origin)) return cb(null, true);
       cb(new Error(`CORS: ${origin} not allowed`));
     },
     credentials: true,
