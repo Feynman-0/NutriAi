@@ -1,0 +1,197 @@
+@import "tailwindcss" source(none);
+@source "../src";
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-accent-warm: var(--accent-warm);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-divider: var(--divider);
+  --color-danger: var(--danger);
+
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --color-border: var(--divider);
+  --color-ring: var(--accent);
+
+  --font-serif: "DM Serif Display", ui-serif, Georgia, serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --bg: #0a0f0d;
+  --bg-2: #111812;
+  --surface: #141f17;
+  --accent: #4ade80;
+  --accent-warm: #d4a853;
+  --text: #f0ede6;
+  --muted: #7a8c7d;
+  --divider: #1e2b20;
+  --danger: #e36b6b;
+}
+
+* {
+  border-color: var(--divider);
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body,
+#root {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  min-height: 100%;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* Utilities */
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-2) 0%,
+    var(--surface) 50%,
+    var(--bg-2) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes ticker-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.ticker {
+  animation: ticker-up 30s linear infinite;
+}
+
+@keyframes fade-cycle {
+  0%,
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  25%,
+  100% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+/* Inputs - bottom border only */
+.field {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--divider);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  padding: 0.75rem 0;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.field::placeholder {
+  color: var(--muted);
+}
+.field:focus {
+  border-bottom-color: var(--accent);
+}
+
+.field-huge {
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid var(--divider);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: clamp(56px, 12vw, 96px);
+  text-align: center;
+  width: 100%;
+  outline: none;
+  padding: 0.25rem 0;
+}
+.field-huge:focus {
+  border-bottom-color: var(--accent);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 1rem 1.25rem;
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+  font-family: var(--font-sans);
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+.btn-primary:hover::after {
+  transform: translateX(100%);
+}
+
+.link-accent {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.link-accent:hover {
+  opacity: 0.8;
+}
+
+.label-spaced {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-family: var(--font-sans);
+}
+
+.outline-text {
+  -webkit-text-stroke: 1px var(--accent);
+  color: transparent;
+}

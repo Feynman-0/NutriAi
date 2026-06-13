@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment files — NEVER commit secrets
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Build output
+dist/
+.output/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vite / TanStack
+.vite/
+*.tsbuildinfo
+
+# Prisma generated (regenerated via prisma generate)
+backend/node_modules/
+
+# Editor
+.vscode/settings.json
+.idea/
