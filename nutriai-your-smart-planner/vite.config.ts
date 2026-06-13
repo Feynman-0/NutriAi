@@ -15,6 +15,7 @@ export default defineConfig({
         generatedRouteTree: "src/routeTree.gen.ts",
       },
       server: {
+        preset: "vercel",
         entry: "src/server.ts",
       },
     }),
