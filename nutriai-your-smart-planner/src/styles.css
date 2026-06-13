@@ -34,6 +34,19 @@
   --danger: #e36b6b;
 }
 
+/* ── Light / healthy theme ───────────────────────────────────────────────── */
+html.light {
+  --bg: #f2f7f0;
+  --bg-2: #e6efe3;
+  --surface: #ffffff;
+  --accent: #1e7e40;
+  --accent-warm: #b8731a;
+  --text: #182b1c;
+  --muted: #5a7060;
+  --divider: #ccdfc7;
+  --danger: #c94040;
+}
+
 * {
   border-color: var(--divider);
   -webkit-font-smoothing: antialiased;
